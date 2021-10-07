@@ -1,0 +1,116 @@
+\documentclass[a4paper, twoside]{report}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{geometry}
+\geometry{
+left=16mm,
+top=30mm,
+right=16mm,
+bottom=30mm
+}
+\usepackage{xcolor}
+\definecolor{bordeau}{rgb}{0.3515625,0,0.234375}
+\usepackage[absolute,overlay]{textpos}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{hyperref}
+\usepackage{afterpage}
+\usepackage{setspace}
+\usepackage{pgffor}
+\setlength{\columnseprule}{0pt}
+\setlength\columnsep{10pt}
+\graphicspath{ {images/} }
+\usepackage{caption}
+\usepackage{subcaption}
+
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+%Bibliography style
+%\usepackage[square, numbers]{natbib}
+\bibliographystyle{abbrvnat}
+
+% Thesis title
+\newcommand{\PhDTitle}{Thesis title. It can extend over several lines (even 4 or 5)} 
+
+% Name
+\newcommand{\PhDname}{FirstName LastName} 
+
+% Change this variable if you add or remove chapters
+\newcommand*{\NumOfChapters}{5}
+
+% Change this variable if you add or remove appendices
+\newcommand*{\NumOfAppendices}{2}
+
+% PDF metadata
+\hypersetup{
+	pdfauthor={\PhDname},
+	pdfsubject={Manuscrit de thèse de doctorat},
+	pdftitle={\PhDTitle}
+}
+\usepackage[style=ieee, defernumbers=true, backend=biber]{biblatex}
+
+\DeclareBibliographyCategory{fullcited}
+\newcommand{\mybibexclude}[1]{\addtocategory{fullcited}{#1}}
+
+
+
+\addbibresource{/Users/swaraj/Documents/SwarajTopFolder/Official/HDR_documents/MYHDRSTUFF_C/chapters/mypub_jabref.bib} % This is your library.
+
+\addbibresource{/Users/swaraj/Documents/SwarajTopFolder/Official/HDR_documents/MYHDRSTUFF_C/chapters/references.bib}
+
+\begin{document}
+
+%\input{titlepage}
+\input{firstpage}
+\cleardoublepage
+
+\input{abstract}
+
+\chapter*{Dedication}
+To Piki, Semairah and Arisha
+
+\chapter*{My Scientific contributions}
+\input{chapters/publistintable}
+
+\chapter*{Scientific Output}
+I declare that..
+
+\chapter*{Acknowledgements}
+I want to thank...
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\chapter{Introduction}
+\input{chapters/introduction}
+
+\chapter{Chapter Two Title}
+\input{chapters/chapter02}
+
+\chapter{Chapter Three Title}
+\input{chapters/chapter03}
+
+\chapter{Chapter Four Title}
+\input{chapters/chapter04}
+
+\chapter{Conclusion and Perspective}
+\input{chapters/conclusion}
+
+\appendix
+\chapter{Appendix Title}
+\input{chapters/appendix}
+
+\printbibliography[notcategory=fullcited]
+%\bibliographystyle{ieeetr}
+\end{document}
